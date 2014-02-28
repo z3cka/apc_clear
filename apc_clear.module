@@ -1,0 +1,8 @@
+<?php
+
+function apc_clear_cron() {
+  if(extension_loaded('apc') && ini_get('apc.enabled')) {
+    apc_clear_cache();
+  }
+//  apc_clear_cache();
+} 

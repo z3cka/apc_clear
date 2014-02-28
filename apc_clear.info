@@ -1,0 +1,4 @@
+name = Clear APC cache
+description = Clears APC's cache when Drupal's cron is run
+core = 7.x
+package = Performance
