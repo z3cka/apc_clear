@@ -4,5 +4,25 @@ function apc_clear_cron() {
   if(extension_loaded('apc') && ini_get('apc.enabled')) {
     apc_clear_cache();
   }
-//  apc_clear_cache();
-} 
+}
+
+function apc_clear_form_system_performance_settings_alter(&$form, &$form_state) {
+  $form['clear_cache_apc'] = array(
+    '#type' => 'fieldset',
+    '#title' => 'Clear APC Cache',
+    'clear_apc' => array(
+      '#type' => 'submit',
+      '#value' => 'Clear APC cache',
+      '#submit' => array('apc_clear_apc_clear_cache'),
+    ),
+  );
+
+  return $form;
+}
+
+function apc_clear_apc_clear_cache() {
+  if(extension_loaded('apc') && ini_get('apc.enabled')) {
+    apc_clear_cache();
+    drupal_set_message(t('APC caches cleared succefully!'));
+  }
+}
