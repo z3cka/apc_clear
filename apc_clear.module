@@ -1,7 +1,7 @@
 <?php
 
 function apc_clear_cron() {
-  apc_clear_apc_clear_cache()
+  apc_clear_apc_clear_cache();
 }
 
 function apc_clear_form_system_performance_settings_alter(&$form, &$form_state) {
